@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NER Disaster Risk Dashboard</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>NER Disaster Risk Dashboard</h1>
+        <p>Landslide & Flood Risk Monitoring</p>
+    </header>
+
+    <main class="dashboard">
+
+        <!-- Risk Map -->
+        <section class="card map-section">
+
+            <div class="section-heading">
+                <h2>Risk Zones</h2>
+
+                <div class="legend">
+                    <span class="high">High Risk</span>
+                    <span class="medium">Medium Risk</span>
+                    <span class="low">Low Risk</span>
+                </div>
+            </div>
+
+            <div id="map"></div>
+
+        </section>
+
+        <!-- Alert Feed -->
+        <section class="card">
+
+            <h2>🚨 Recent Alerts</h2>
+
+            <div id="alertFeed">
+                <p>Loading alerts...</p>
+            </div>
+
+        </section>
+        <!-- Risk Prediction -->
+
+<section class="card prediction-section">
+
+    <h2>🌧️ Landslide Risk Prediction</h2>
+
+    <p class="description">
+        Enter rainfall and soil moisture to predict landslide risk.
+    </p>
+
+    <form id="predictionForm">
+
+        <label for="rainfall">
+            Rainfall (mm)
+        </label>
+
+        <input
+            type="number"
+            id="rainfall"
+            placeholder="Example: 120"
+            min="0"
+            step="0.1"
+            required
+        >
+
+        <label for="soilMoisture">
+            Soil Moisture (%)
+        </label>
+
+        <input
+            type="number"
+            id="soilMoisture"
+            placeholder="Example: 68"
+            min="0"
+            max="100"
+            step="0.1"
+            required
+        >
+
+        <button type="submit">
+            Predict Risk
+        </button>
+
+    </form>
+
+    <div id="predictionResult"></div>
+
+</section>
+
+        <!-- Citizen Report -->
+        <section class="card report-section">
+
+            <h2>📸 Report a Hazard</h2>
+
+            <p class="description">
+                Help us report landslides, floods and other hazards.
+            </p>
+
+            <form id="reportForm">
+
+                <label for="photo">Upload Photo</label>
+
+                <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                    required
+                >
+
+                <label for="latitude">Latitude</label>
+
+                <input
+                    type="number"
+                    id="latitude"
+                    name="latitude"
+                    step="any"
+                    placeholder="Example: 27.4728"
+                    required
+                >
+
+                <label for="longitude">Longitude</label>
+
+                <input
+                    type="number"
+                    id="longitude"
+                    name="longitude"
+                    step="any"
+                    placeholder="Example: 94.9120"
+                    required
+                >
+
+                <label for="description">Description</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Describe the hazard..."
+                    rows="4"
+                ></textarea>
+
+                <button type="submit">
+                    Submit Report
+                </button>
+
+            </form>
+
+            <p id="reportMessage"></p>
+
+        </section>
+
+    </main>
+
+    <!-- Leaflet JS -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
