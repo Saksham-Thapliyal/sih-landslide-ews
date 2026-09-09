@@ -1,0 +1,7 @@
+{
+  "name": "Bhoomi Rakshak - Geohazard Early Warning Network",
+  "description": "National AI-driven landslide risk monitoring, geospatial telemetry, and early warning intelligence platform for India's mountainous terrains.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
